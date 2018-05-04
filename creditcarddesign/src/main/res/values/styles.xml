@@ -10,6 +10,7 @@
         <attr name="card_holder_name" format="string" />
         <attr name="card_expiration" format="string" />
         <attr name="card_number" format="string" />
+        <attr name="card_status" format="string" />
         <attr name="card_side" format="enum">
             <enum name="front" value="1" />
             <enum name="back" value="0" />
