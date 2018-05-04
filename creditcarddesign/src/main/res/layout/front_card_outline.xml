@@ -26,12 +26,11 @@
         android:id="@+id/logo_img"
         android:layout_width="@dimen/logo_width_normal"
         android:layout_height="@dimen/logo_height_normal"
-        android:layout_alignBottom="@+id/chip_container"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/chip_container"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
         android:src="@drawable/ic_billing_visa_logo" />
 
 
@@ -44,6 +43,18 @@
 
 
         />
+
+    <TextView
+        android:id="@+id/txtCardStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/logo_img"
+        android:layout_alignRight="@+id/logo_img"
+        android:layout_alignTop="@+id/chip_container"
+        android:text="Active"
+        android:textColor="@color/semi_white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>

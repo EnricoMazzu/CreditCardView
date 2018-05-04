@@ -28,6 +28,7 @@ public class CreditCardView extends FrameLayout {
     private static final int TEXTVIEW_CARD_NUMBER_ID = R.id.front_card_number;
     private static final int TEXTVIEW_CARD_CVV_ID = R.id.back_card_cvv;
     private static final int TEXTVIEW_CARD_CVV_AMEX_ID = R.id.front_card_cvv;
+    private static final int TEXTVIEW_CARD_STATUS_ID = R.id.txtCardStatus;
     private static final int FRONT_CARD_ID = R.id.front_card_container;
     private static final int BACK_CARD_ID = R.id.back_card_container;
     private static final int FRONT_CARD_OUTLINE_ID = R.id.front_card_outline;
@@ -38,7 +39,7 @@ public class CreditCardView extends FrameLayout {
     private String mRawCardNumber;
     private ICustomCardSelector mSelectorLogic;
 
-    private String mCardHolderName, mCVV, mExpiry;
+    private String mCardHolderName, mCVV, mExpiry, mCardStatus;
 
     private CreditCardUtils.CardType mCardType;
 
@@ -71,6 +72,10 @@ public class CreditCardView extends FrameLayout {
         return mExpiry;
     }
 
+    public String getCardStatus(){
+        return mCardStatus;
+    }
+
     public CreditCardUtils.CardType getCardType() { return mCardType; }
 
     public interface ICustomCardSelector {
@@ -99,6 +104,7 @@ public class CreditCardView extends FrameLayout {
         String cardHolderName = a.getString(R.styleable.creditcard_card_holder_name);
         String expiry = a.getString(R.styleable.creditcard_card_expiration);
         String cardNumber = a.getString(R.styleable.creditcard_card_number);
+        String cardStatus = a.getString(R.styleable.creditcard_card_status);
 
         int cvv = a.getInt(R.styleable.creditcard_cvv, 0);
         int cardSide = a.getInt(R.styleable.creditcard_card_side,CreditCardUtils.CARD_SIDE_FRONT);
@@ -107,6 +113,7 @@ public class CreditCardView extends FrameLayout {
         setCVV(cvv);
         setCardExpiry(expiry);
         setCardHolderName(cardHolderName);
+        setCardStatus(cardStatus);
 
         if(cardSide == CreditCardUtils.CARD_SIDE_BACK) {
             showBackImmediate();
@@ -251,6 +258,16 @@ public class CreditCardView extends FrameLayout {
 
         ((TextView)findViewById(TEXTVIEW_CARD_HOLDER_ID)).setText(cardHolderName);
     }
+
+    public void setCardStatus(String cardStatus) {
+
+        cardStatus = cardStatus == null ? "" : cardStatus;
+
+        this.mCardStatus = cardStatus;
+
+        ((TextView)findViewById(TEXTVIEW_CARD_STATUS_ID)).setText(mCardStatus);
+    }
+
 
     public void paintCard() {
 
