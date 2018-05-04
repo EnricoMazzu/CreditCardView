@@ -73,7 +73,7 @@ public class CreditCardView extends FrameLayout {
 
     public CreditCardUtils.CardType getCardType() { return mCardType; }
 
-    interface ICustomCardSelector {
+    public interface ICustomCardSelector {
         CardSelector getCardSelector(String cardNumber);
     }
     
